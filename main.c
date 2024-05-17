@@ -26,8 +26,11 @@ int main() {
             if (opcao == 1) {//Se a opção for 1
               printf("--CADASTRO DE NOVOS CLIENTES--\n");
                 criando_clientes(CLIENTE_LIMITE, &num_clientes);
+                
             } else if (opcao == 2) {
               printf("--lISTAR CLIENTES--\n");
+              listar_clientes(CLIENTE_LIMITE, &num_clientes);
+                
             } else if (opcao == 3) {
               printf("--DELETAR CLIENTES--\n");
             } else if (opcao == 4) {
