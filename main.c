@@ -12,51 +12,36 @@ int main() {
     int opcao;
 
     do {
-        printf("\n-------------Banco Quem Poupa Tem----------\n");
-        printf("1 - Cadastrar novo cliente \n");
-        printf("2 - Listar clientes \n");
-        printf("3 - Deletar cliente\n");
-        printf("4 - Debito\n");
-        printf("5 - Depositar\n");
-        printf("6 - Extrato\n");
-        printf("0 - Sair\n");
+            printf("\n-------------Banco Quem Poupa Tem----------\n");
+            printf("1 - Cadastrar novo cliente \n");//opções
+            printf("2 - Listar clientes \n");//opções
+            printf("3 - Deletar cliente\n");//opções
+            printf("4 - Debito\n");//opções
+            printf("5 - Depositar\n");//opções
+            printf("6 - Extrato\n");//opções
+            printf("0 - Sair\n");//opções
+            scanf("%d", &opcao);// opção escolhida
+            limpar_buffer();//limpando o buffer
 
-        printf("Escolha uma opção: ");
-        scanf("%d", &opcao);
-        limpar_buffer();
-
-        switch (opcao) {
-            case 1:
-                printf("--CADASTRO DE NOVOS CLIENTES--\n");
+            if (opcao == 1) {//Se a opção for 1
+              printf("--CADASTRO DE NOVOS CLIENTES--\n");
                 criando_clientes(CLIENTE_LIMITE, &num_clientes);
-                break;
-            case 2:
-                printf("--LISTAR CLIENTES--\n");
-                
-                break;
-            case 3:
-                printf("--DELETAR CLIENTES--\n");
-               
-                break;
-            case 4:
+            } else if (opcao == 2) {
+              printf("--lISTAR CLIENTES--\n");
+            } else if (opcao == 3) {
+              printf("--DELETAR CLIENTES--\n");
+            } else if (opcao == 4) {
                 printf("--DEBITO NA CONTA--\n");
-                
-                break;
-            case 5:
+            } else if (opcao == 5) {
                 printf("--DEPOSITAR NA CONTA--\n");
-              
-                break;
-            case 6:
+            } else if (opcao == 6) {
                 printf("--EXTRATO NA CONTA--\n");
-                
-                break;
-            case 0:
+            } else if (opcao == 0) {
                 printf("Saindo...\n");
-                break;
-            default:
+            } else {
                 printf("Opção inválida.\n");
-        }
-    } while (opcao != 0);
+            }
+        } while (opcao != 0);
 
-    return 0;
-}
+        return 0;
+    }
