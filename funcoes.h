@@ -14,5 +14,6 @@ typedef struct {
 
 void criando_contatos(CLIENTE[], int*);
 void salvar_cliente(CLIENTE[], int*);
-
+void carregar_clientes(CLIENTE[], int*);
+void listar_clientes(CLIENTE[], int*);
 #endif 

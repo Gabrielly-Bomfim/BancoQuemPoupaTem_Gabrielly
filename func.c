@@ -11,7 +11,28 @@ void salvar_cliente(CLIENTE CLIENTE_LIMITE[], int *num_clientes) {
     fwrite(CLIENTE_LIMITE, sizeof(CLIENTE), *num_clientes, arquivo);
     fclose(arquivo);
 }
+void carregar_clientes(CLIENTE CLIENTE_LIMITE[], int *num_clientes) {
+    FILE *arquivo = fopen("clientes.bin", "rb");
+    if (arquivo == NULL) {
+        printf("Arquivo não encontrado. \n");
+        return;
+    }
+    fread(&num_clientes, sizeof(int), 1, arquivo);
+    fread(CLIENTE_LIMITE, sizeof(CLIENTE), num_clientes, arquivo);
+    fclose(arquivo);
+}
 
+void listar_clientes(CLIENTE CLIENTE_LIMITE[], int *num_clientes) {
+    printf("\nLista de Clientes:\n");
+    for (int i = 0; i < *num_clientes; i++) {
+        printf("---------------------------------------\n");
+        printf ("\nNome: %s\n", CLIENTE_LIMITE[i].nome);
+        printf("CPF: %s\n", CLIENTE_LIMITE[i].cpf);
+        printf("Tipo de Conta: %s\n", CLIENTE_LIMITE[i].tipo_conta);
+        printf("Saldo: %.2f\n", CLIENTE_LIMITE[i].saldo);
+        printf("---------------------------------------\n");
+    }
+}
 
 void criando_clientes(CLIENTE CLIENTE_LIMITE[], int *num_clientes) {
 
@@ -37,8 +58,5 @@ void criando_clientes(CLIENTE CLIENTE_LIMITE[], int *num_clientes) {
     }
 }
 
-void clearBuffer(){
-    int c;
-    while ((c = getchar()) != '\n' && c != EOF);
-}
+
 
