@@ -10,7 +10,7 @@ int main() {
     int num_clientes = 0;
     CLIENTE CLIENTE_LIMITE[CLIENTES];
     int opcao;
-
+//com
     do {
             printf("\n-------------Banco Quem Poupa Tem----------\n");
             printf("1 - Cadastrar novo cliente \n");//opções
@@ -33,8 +33,10 @@ int main() {
                 
             } else if (opcao == 3) {
               printf("--DELETAR CLIENTES--\n");
+              apaga_cliente(CLIENTE_LIMITE, &num_clientes);
             } else if (opcao == 4) {
                 printf("--DEBITO NA CONTA--\n");
+                debito(CLIENTE_LIMITE, &num_clientes);
             } else if (opcao == 5) {
                 printf("--DEPOSITAR NA CONTA--\n");
             } else if (opcao == 6) {
