@@ -1,14 +1,16 @@
 // o menu 
 #include <stdio.h>
+#include "funcoes.h"
 
-void clearBuffer() {//função para limpar a quebra de linha e o fim do contato
+void limparbuffer() {//função para limpar a quebra de linha e o fim do contato
     int c;
     while ((c = getchar()) != '\n' && c != EOF);
 }
 
-
 int main() {
-  int opcao;
+    int num_clientes = 0;
+    CLIENTE CLIENTE_LIMITE[CLIENTES];
+    int opcao;
     do {
         printf("\n-------------Banco Quem Poupa Tem----------\n");
         printf("1 - Cadastrar novo cliente \n");//opções
@@ -19,11 +21,11 @@ int main() {
         printf("6 - Extrato\n");//opções
         printf("0 - Sair\n");//opções
         scanf("%d", &opcao);// opção escolhida
-        clearBuffer();//limpando o buffer
+        limparbuffer();//limpando o buffer
 
         if (opcao == 1) {//Se a opção for 1
           printf("--CADASTRO DE NOVOS CLIENTES--\n");
-
+          criando_clientes(CLIENTE_LIMITE, &num_clientes);
         } else if (opcao == 2) {
           printf("--lISTAR CLIENTES--\n");
         } else if (opcao == 3) {
