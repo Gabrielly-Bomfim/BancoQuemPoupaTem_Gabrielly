@@ -1,16 +1,18 @@
-//esse struct vai ter as informações do cliente 
+#ifndef FUNCOES_H
+#define FUNCOES_H
+
 #define CLIENTES 1000
-#define OPERACOES 100
-struct cliente {//definindo as variaveis 
+
+typedef struct {
     char nome[50];
     char cpf[15];
-    char tipoConta[20];
-    double valorInicial;
+    char tipo_conta[20];
+    double saldo;
     char senha[10];
-}; //definindo o struct
+    int num_operacoes;
+} CLIENTE;
 
-//esse struct vai ter as informações das operações realizadas 
-struct OPERA {//definindo as variaveis 
-    char operacao_feita[50];
-    double valor;
-};
+void criando_contatos(CLIENTE[], int*);
+void salvar_cliente(CLIENTE[], int*);
+
+#endif 
