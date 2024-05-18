@@ -39,6 +39,7 @@ int main() {
                 debito(CLIENTE_LIMITE, &num_clientes);
             } else if (opcao == 5) {
                 printf("--DEPOSITAR NA CONTA--\n");
+                deposito(CLIENTE_LIMITE, &num_clientes);
             } else if (opcao == 6) {
                 printf("--EXTRATO NA CONTA--\n");
             } else if (opcao == 0) {

@@ -19,4 +19,5 @@ void carregar_clientes(CLIENTE[], int*);
 void listar_clientes(CLIENTE[], int*);
 void apaga_cliente(CLIENTE[], int*);
 void debito(CLIENTE[], int*);
+void deposito(CLIENTE[], int*);
 #endif 

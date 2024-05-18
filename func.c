@@ -130,5 +130,34 @@ void criando_clientes(CLIENTE CLIENTE_LIMITE[], int *num_clientes) {
      fclose(arquivo);
  }
 
+ void deposito(CLIENTE CLIENTE_LIMITE[], int *num_clientes) {
+     char cpf[12]; 
+     float valor;
+     printf("CPF do cliente: ");
+     scanf("%s", cpf);
+     printf("Valor do débito: ");
+     scanf("%f", &valor);
+     FILE *arquivo = fopen("cadastros.bin", "rb+");
+     if (arquivo == NULL) {
+         printf("Erro ao abrir o arquivo.\n");
+         return;
+     }
+
+     for (int i = 0; i < *num_clientes; i++) {
+         if (strcmp(CLIENTE_LIMITE[i].cpf, cpf) == 0) {
+             CLIENTE_LIMITE[i].saldo += valor;
+             CLIENTE_LIMITE[i].extrato[CLIENTE_LIMITE[i].num_operacoes++] = valor;
+             fseek(arquivo, sizeof(int) + i * sizeof(CLIENTE), SEEK_SET);
+             fwrite(&CLIENTE_LIMITE[i], sizeof(CLIENTE), 1, arquivo);
+             printf("Operação realizada!\n");
+             fclose(arquivo);
+             return;
+         }
+         }
+     printf("Cliente não encontrado.\n");
+     fclose(arquivo);
+ }
+
+
 
 
