@@ -7,7 +7,7 @@ typedef struct {
     char nome[50];
     char cpf[15];
     char tipo_conta[20];
-    double saldo;
+    float saldo;
     char senha[10];
     float extrato[OPERACOES];
     int num_operacoes;
