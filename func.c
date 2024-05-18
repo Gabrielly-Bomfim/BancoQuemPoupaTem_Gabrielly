@@ -157,6 +157,23 @@ void criando_clientes(CLIENTE CLIENTE_LIMITE[], int *num_clientes) {
      printf("Cliente não encontrado.\n");
      fclose(arquivo);
  }
+void extrato(CLIENTE CLIENTE_LIMITE[], int *num_clientes) {
+    char cpf[12];
+    printf("CPF do cliente: ");
+    scanf("%s", cpf);
+
+    int i;
+    for (i = 0; i < num_clientes; i++) {
+        if (strcmp(CLIENTE_LIMITE[i].cpf, cpf) == 0) {
+            printf("\nExtrato de %s:\n",CLIENTE_LIMITE[i].nome);
+            for (int e = 0; e < CLIENTE_LIMITE[i].num_operacoes; e++) {
+                printf("%.2f\n", CLIENTE_LIMITE[i].extrato[e]);
+            }
+            return;
+        }
+    }
+    printf("Cliente não encontrado.\n");
+}
 
 
 
